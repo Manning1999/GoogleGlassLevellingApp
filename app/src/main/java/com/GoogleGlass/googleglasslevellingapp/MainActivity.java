@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements GlassGestureDetec
 
 
         if(isRunning == true) return;
-        isRunning=true;
+
 
         Timer t = new Timer();
 //Set the schedule function and rate
@@ -81,16 +81,23 @@ public class MainActivity extends AppCompatActivity implements GlassGestureDetec
 
 
                                       if (orientationData.GetOrientation() != null && orientationData.GetStartOrientation() != null) {
-                                          float pitch = orientationData.GetOrientation()[1] - orientationData.GetStartOrientation()[1];
-                                          float roll = orientationData.GetOrientation()[2] - orientationData.GetStartOrientation()[2];
+                                          float pitch = orientationData.GetOrientation()[1];// - orientationData.GetStartOrientation()[1];
+                                          float roll = orientationData.GetOrientation()[2];// - orientationData.GetStartOrientation()[2];
 
                                           rotationText.setText(pitch + " : " + roll);
                                           //Full rotation is equal to 6. 360 / 6 = 60 which is why the roll/pitch must be multiplied by 6
-                                          findViewById(R.id.imageView).setRotation(0 - (roll * 60));
+                                          if(isRunning == false) {
+                                              findViewById(R.id.imageView).setRotation(-(roll * 60));
+                                          }
+                                          else{
+                                              findViewById(R.id.imageView).setRotation(0 - (roll * 60));
+                                          }
                                       }
                                       else{
                                           rotationText.setText("No data available");
                                       }
+
+                                      isRunning=true;
                                   }
 
                               },

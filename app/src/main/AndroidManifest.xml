@@ -17,7 +17,9 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <category
+            android:name="com.google.android.glass.category.DIRECTORY" />
+        </intent-filter>
         </activity>
 
 
