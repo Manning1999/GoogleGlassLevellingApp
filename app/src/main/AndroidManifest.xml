@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.GoogleGlass.googleglasslevellingapp">
 
+    <supports-screens
+        android:largestWidthLimitDp="640"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,8 +29,8 @@
 
     </application>
 
-   <!-- <uses-feature
-        android:name="android.hardware.sensor.gyroscope"
-        android:required="true" />-->
+    <uses-feature
+        android:name="android.hardware.sensor."
+        android:required="true" />
 
 </manifest>
